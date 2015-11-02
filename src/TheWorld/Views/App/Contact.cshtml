@@ -1,8 +1,16 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model TheWorld.ViewModels.ContactViewModel
 @{
     ViewBag.Title = "Contact Page";
 }
 
 <h2>Contact</h2>
+
+<form>
+  <label asp-for="Name">Name</label>
+  <input asp-for="Name" />
+  <label asp-for="Email">Email</label>
+  <input type="email" asp-for="Email" />
+  <label asp-for="Message">Message</label>
+  <textarea cols="40" rows="4" asp-for="Message"></textarea>
+  <div><input type="submit"  name="" value="Send Message" /></div>
+</form>
