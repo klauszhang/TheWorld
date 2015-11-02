@@ -1,5 +1,8 @@
 {
-  "AppSettings":{
-    "SiteEmailAddress":"me@aol.com"
+  "AppSettings": {
+    "SiteEmailAddress": "me@aol.com"
+  },
+  "Data": {
+    "WorldContextConnection": "Server=.\\sqlexpress; Database=TheWorldDb; Trusted_Connection=true; MultipleActiverecordSets=true;"
   }
 }
