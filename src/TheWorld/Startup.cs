@@ -9,6 +9,7 @@ using TheWorld.Services;
 using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.Configuration;
 using Microsoft.Dnx.Runtime;
+using TheWorld.Models;
 
 namespace TheWorld
 {
@@ -30,6 +31,10 @@ namespace TheWorld
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
+
+      services.AddEntityFramework()
+        .AddSqlServer()
+        .AddDbContext<WorldContext>();
 
       // if (env.IsDevelopment())
       // IHostingEnvironment env
