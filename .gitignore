@@ -196,5 +196,5 @@ FakesAssemblies/
 *.opt
 
 # library file
-/TheWorld/lib/
-/TheWorld/wwwroot/lib
+src/TheWorld/lib/
+src/TheWorld/wwwroot/lib
