@@ -4,5 +4,7 @@
   },
   "Data": {
     "WorldContextConnection": "Server=.\\sqlexpress; Database=TheWorldDb; Trusted_Connection=true; MultipleActiverecordSets=true;"
+    "WorldContextConnection": "Server=.\\Sqlexpress;Database=TheWorldDb;Trusted_Connection=true;MultipleActiveResultSets=true;"
+>>>>>>> fix
   }
 }
