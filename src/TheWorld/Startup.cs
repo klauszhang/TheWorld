@@ -10,6 +10,7 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Framework.Configuration;
 using Microsoft.Dnx.Runtime;
 using TheWorld.Models;
+using Microsoft.Framework.Logging;
 
 namespace TheWorld
 {
@@ -32,10 +33,15 @@ namespace TheWorld
     {
       services.AddMvc();
 
+      services.AddLogging();
+
       services.AddEntityFramework()
         .AddSqlServer()
         .AddDbContext<WorldContext>();
 
+      services.AddTransient<WorldContextSeedData>();
+
+      services.AddScoped<IWorldRepository, WorldRepository>();
       // if (env.IsDevelopment())
       // IHostingEnvironment env
       // {
@@ -47,8 +53,10 @@ namespace TheWorld
       //}
     }
 
-    public void Configure(IApplicationBuilder app)
+    public void Configure(IApplicationBuilder app, WorldContextSeedData seeder,ILoggerFactory loggerFactory)
     {
+      loggerFactory.AddDebug(LogLevel.Warning);
+
       app.UseStaticFiles();
 
       app.UseMvc(config =>
@@ -67,6 +75,8 @@ namespace TheWorld
       //{
       //    await context.Response.WriteAsync("Hello World!");
       //});
+      seeder.EnsureSeedData();
+      
     }
   }
 }
